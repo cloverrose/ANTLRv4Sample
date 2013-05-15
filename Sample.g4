@@ -5,6 +5,7 @@ prog:  stat+
 
 stat:  exprAssign
     |  formulaAssign
+    |  tupleAssign
     ;
 
 exprAssign
@@ -15,9 +16,19 @@ formulaAssign
     :  ID '=' formula ';'
     ;
 
+tupleAssign
+    :   ID '=' '(' (element (',' element)*)? ')' ';'
+    ;
+
+element
+    :   expr
+    |   formula
+    ;
+
 expr:  expr ('*' | '/') expr
     |  expr ('+' | '-') expr
     |  INT
+    |  ID
     |  '(' expr ')'
     ;
 
@@ -29,6 +40,7 @@ formula
     |  formula '<->' formula
     |  'true'
     |  'false'
+    |  ID
     |  '(' formula ')'
     ;
 
