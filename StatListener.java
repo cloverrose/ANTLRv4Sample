@@ -12,10 +12,18 @@ public class StatListener extends SampleBaseListener {
     }
 
     @Override
-    public void enterStat(SampleParser.StatContext ctx) {
+    public void enterExprAssign(SampleParser.ExprAssignContext ctx) {
         TokenStream tokens = parser.getTokenStream();
         String name = ctx.ID().getText();
         String expr = ctx.expr().getText();
-        System.out.println("prog: " + name + " = " + expr + ";");
+        System.out.println("exprAssign   : " + name + " = " + expr + ";");
+    }
+
+    @Override
+    public void enterFormulaAssign(SampleParser.FormulaAssignContext ctx) {
+        TokenStream tokens = parser.getTokenStream();
+        String name = ctx.ID().getText();
+        String formula = ctx.formula().getText();
+        System.out.println("formulaAssign: " + name + " = " + formula + ";");
     }
 }
