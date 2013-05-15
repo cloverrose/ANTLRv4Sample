@@ -1,0 +1,10 @@
+# Java
+*.class
+
+# ANTLR gen
+SampleLexer.tokens
+Sample.tokens
+SampleLexer.java
+SampleParser.java
+SampleListener.java
+SampleBaseListener.java
