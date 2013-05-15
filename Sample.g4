@@ -3,16 +3,13 @@ grammar Sample;
 prog:  stat+
     ;
 
-stat:  name '=' expr ';'
+stat:  ID '=' expr ';'
     ;
 
 expr:  expr ('*' | '/') expr
     |  expr ('+' | '-') expr
     |  INT
     |  '(' expr ')'
-    ;
-
-name:  ID
     ;
 
 INT :  ('0'..'9')+

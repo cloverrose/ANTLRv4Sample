@@ -14,7 +14,7 @@ public class StatListener extends SampleBaseListener {
     @Override
     public void enterStat(SampleParser.StatContext ctx) {
         TokenStream tokens = parser.getTokenStream();
-        String name = ctx.name().getText();
+        String name = ctx.ID().getText();
         String expr = ctx.expr().getText();
         System.out.println("prog: " + name + " = " + expr + ";");
     }
